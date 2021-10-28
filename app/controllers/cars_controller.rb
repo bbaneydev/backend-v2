@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-    skip_before_action :confirm_authentication, only: [:index, :show]
+    skip_before_action :confirm_authentication, only: [:index, :show, :create]
 
     def index
         render json: Car.all.to_json(:except => [:reviews])
