@@ -2,8 +2,11 @@ class UsersController < ApplicationController
     skip_before_action :confirm_authentication
 
     def show
-        current_user = User.find(session[:user_id])
-        render json: current_user
+        if current_user
+          render json: current_user, status: :ok
+        else
+          render json: { error: "No active session" }, status: :unauthorized
+        end
     end
 
     def destroy
