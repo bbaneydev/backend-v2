@@ -12,6 +12,7 @@ export default function AuthenticatedApp({ currentUser, setCurrentUser }) {
     const [favorites, setFavorites] = useState([])
     const [wishlists, setWishlists] = useState([])
     const [update, setUpdate] = useState(false)
+    const [favorite, setFavorite] = useState(false)
 
     useEffect(() => {
         fetch('/cars')
@@ -43,6 +44,7 @@ export default function AuthenticatedApp({ currentUser, setCurrentUser }) {
         const updatedCar = [...cars, newCar]
         setCars(updatedCar)
     }
+
 
     function handleAddFavorite(carId) {
         return fetch('/favorites', {

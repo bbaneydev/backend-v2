@@ -4,8 +4,6 @@ import "../App.css"
 
 export default function CarCard({ engine, horsepower, image, make, model, price, time, handleAddFavorite, handleAddWishlist, id }) {
 
-    let favBttn = "Favorite";
-
     return (
         <div className='flip-card'>
             <div className='inner'>
@@ -17,9 +15,9 @@ export default function CarCard({ engine, horsepower, image, make, model, price,
                     <div className='back-container'>
                         <div className='back-info'>
                             <h1>{make} {model}</h1>
-                            <p>{engine}</p>
-                            <p>{price}</p>
-                            <p>{horsepower}</p>
+                            <p>{engine} Engine</p>
+                            <p>${price}</p>
+                            <p>{horsepower} Horsepower</p>
                             <p>{time}s 0-60 Time</p>
                         </div>
                         <div className='back-image'>
