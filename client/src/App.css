@@ -1,38 +1,484 @@
-.App {
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+
+body {
+  background-color: #262626;
+  font-family: 'Cairo'
+}
+
+.top-bar {
+  margin-top: 2%;
+}
+
+.app-name {
   text-align: center;
+  font-size: 30px;
+  color: white;
+  padding-top: 2%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav-bar {
+  float: left;
+  padding-left: 4%;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  margin-top: .5%;
+  background-color: #262626;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.search-icon {
+  float: right;
+  padding-right: 6%;
+  width: 1.2%;
+  cursor: pointer;
+  margin-top: -1.5%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 6%;
+  top: 4%;
+}
+
+.bm-burger-bars {
+  background: white;
+}
+
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+.bm-cross {
+  background: white;
+}
+
+.bm-menu {
+  background-color: #262626;
+  width: 100%;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+} */
+
+.bm-morph-shape {
+  fill: #262626;
+}
+
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.bm-item-list {
+  overflow-y: hidden;
+}
+ 
+
+nav a {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-decoration: none;
+}
+
+.menu-item {
+  text-align: center;
+  margin-top: 18%;
+  margin-left: 32%;
+  font-size: 24px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.menu-item:hover {
+  text-decoration: underline;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search {
+  float: right;
+  margin-right: 6%;
+  margin-top: -1.2%;
+}
+
+.search-info input {
+  width: 10%;
+  border: none;
+  border-bottom: 1px solid white;
+  font-size: 18px;
+  background-color: #262626;
+  color: white;
+}
+
+.search-info input::placeholder {
+  color: gray;
+}
+
+.search-info input:focus {
+  outline: none;
+}
+
+.card-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.flip-card {
+  width: 26%;
+  height: 400px;
+  background-color: transparent;
+  border-radius: 6px;
+  transition: all .4s ease-in-out;
+  margin-top: 5%;
+  perspective: 1000px;
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .inner {
+/*   transform: scale(1.1); */
+  transform: rotateY(180deg)
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 6px;
+  box-shadow: 8px 8px 15px rgba(0, 1, 0, 1);
+}
+
+.front {
+  background-color: white;
+  filter: brightness(95%);
+}
+
+.front h1 {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.front img {
+  width: 90%;
+}
+
+.back {
+  background-color: white;
+  filter: brightness(90%);
+  transform: rotateY(180deg);
+}
+
+.review {
+  background-color: white;
+  width: 100px;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Cairo';
+  box-shadow: 0px 8px 15px rgba(0, 0.4, 0, 0.4);
+  transition: all 0.3s ease 0s;
+  font-size: 1em;
+  margin-top: 4%;
+}
+
+.please {
+  width: 90%;
+  margin: 0 auto;
+  font-weight: 600;
+}
+
+.btm-btn {
+  background-color: white;
+  width: 100px;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Cairo';
+  box-shadow: 0px 8px 15px rgba(0, 0.4, 0, 0.4);
+  transition: all 0.3s ease 0s;
+  font-size: 1em;
+  margin-top: 1%;
+  margin-left: 2%;
+  float: left;
+}
+
+.fav-btn {
+  background-color: white;
+  width: 100px;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Cairo';
+  box-shadow: 0px 8px 15px rgba(0, 0.4, 0, 0.4);
+  transition: all 0.3s ease 0s;
+  font-size: 1em;
+  margin-top: 1%;
+  float: right;
+  margin-right: 6%;
+}
+
+.back-container {
+  display: flex;
+}
+
+.back-info {
+  margin-top: 5%;
+  width: 60%;
+  text-align: left;
+}
+
+.back-info h1 {
+  font-weight: bold;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  margin-left: 6%;
+  font-size: 22px;
+  width: 140%;
+}
+
+.back-info p {
+  margin-left: 6%;
+  margin-bottom: 10%;
+  font-size: 20px;
+}
+
+.back-image {
+  width: 50%;
+  align-self: center;
+  margin-right: 12%;
+  margin-top: 24%;
+}
+
+.back-image img {
+  width: 120%;
+}
+
+.user-content {
+  text-align: center;
+  font-size: 26px;
+  margin-top: 6%;
+  color: white;
+}
+
+.user-content button {
+  float: right;
+  margin-right: 6%;
+  background-color: white;
+  width: 80px;
+  margin-top: -1.6%;
+  border-radius: 12px;
+  outline: none;
+  cursor: pointer;
+  font-size: .7em;
+  font-family: 'Cairo';
+  box-shadow: 0px 8px 15px rgba(0, 0.6, 0, 0.6);
+  transition: all 0.3s ease 0s;
+}
+
+.user-content button:hover {
+	transform: translateY(-4px);
+}
+
+.pagination {
+  text-align: center;
+  margin-left: 48%;
+  display: flex;
+  margin-bottom: 2%;
+}
+
+.page-item {
+  margin-left: 2%;
+}
+
+.page-link {
+  border: 1px solid white;
+  background-color: transparent;
+  font-size: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+.page-link:focus {
+  background-color: white;
+  width: 22px;
+  height: 22px;
+}
+
+.login-page {
+  text-align: center;
+}
+
+.login-info {
+  margin-top: 6%;
+  margin-bottom: 8%;
+  color: white;
+}
+
+.login-info h1 {
+  font-size: 34px;
+  margin-bottom: 2%;
+}
+
+.login-info h3 {
+  font-size: 24px;
+}
+
+.login-form-container {
+  border: 1px solid white;
+  width: 30%;
+  margin: 0 auto;
+  padding-bottom: 4%;
+  padding-top: 2%;
+}
+
+.login-h1 {
+  font-size: 22px;
+  color: white;
+  margin-bottom: 2%;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 0 auto;
+  justify-content: center;
+  color: white;
+}
+
+.login-form span {
+  margin-bottom: 4%;
+  margin-top: 4%;
+}
+
+.login-form button {
+  margin-top: 12%;
+  margin-bottom: 12%;
+  cursor: pointer;
+}
+
+.login-form-container p {
+  color: white;
+}
+
+.login-form-container p span {
+  font-style: italic;
+  color: grey;
+}
+
+.login-form-container p span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.home .home-button {
+  float: right;
+  margin-right: 6%;
+  margin-top: -1%;
+  cursor: pointer;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Cairo';
+  box-shadow: 0px 8px 15px rgba(0, 0.4, 0, 0.4);
+  transition: all 0.3s ease 0s;
+  border-radius: 10px;
+  width: 100px;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.home-button:hover {
+  transform: translateY(-4px);
+}
+
+.home-h1 {
+  text-align: center;
+  margin-top: 2%;
+  font-size: 30px;
+  color: white;
+}
+
+.profile-container {
+  text-align: center;
+  margin-top: 3%;
+}
+
+.profile-h1 {
+  font-size: 34px;
+  margin-bottom: 6%;
+  color: white;
+}
+
+.profile-h3 {
+  font-size: 24px;
+  color: white;
+  margin-bottom: -4%;
 }

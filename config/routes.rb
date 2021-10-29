@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :wishlists
+  resources :favorites
   resources :reviews
   resources :cars
   resources :users
