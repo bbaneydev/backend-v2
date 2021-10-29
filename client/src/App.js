@@ -26,7 +26,7 @@ function App() {
 
   if (!authChecked) { return <div></div> }
   return (
-    <Router forceRefresh={true}>
+    <Router>
       {currentUser ? (
         <AuthenticatedApp
           setCurrentUser={setCurrentUser}

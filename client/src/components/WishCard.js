@@ -6,7 +6,7 @@ export default function WishCard({ id, engine, horsepower, image, make, model, p
         fetch(`/wishlists/${wishId}`, {
             method: 'DELETE'
         });
-        setUpdate(!update)
+        // setUpdate(!update)
         deleteWish(wishId)
 
     }

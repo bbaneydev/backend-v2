@@ -19,17 +19,25 @@ export default function AuthenticatedApp({ currentUser, setCurrentUser }) {
             .then(setCars)
     }, [])
 
+
+
     useEffect(() => {
         fetch('/favorites')
             .then(res => res.json())
-            .then(setFavorites)
-    }, [])
+            .then((favorites) => {
+                setFavorites(favorites)
+                // setUpdate(!update)
+            })
+    }, [update])
 
     useEffect(() => {
         fetch('/wishlists')
             .then(res => res.json())
-            .then(setWishlists)
-    }, [])
+            .then((wishlists) => {
+                setWishlists(wishlists)
+                // setUpdate(!update)
+            })
+    }, [update])
 
     function handleAdd(newCar) {
         const updatedCar = [...cars, newCar]
@@ -65,6 +73,7 @@ export default function AuthenticatedApp({ currentUser, setCurrentUser }) {
                     }
                 })
                 setFavorites(updatedCars)
+                setUpdate(!update)
             })
     }
 
@@ -97,6 +106,7 @@ export default function AuthenticatedApp({ currentUser, setCurrentUser }) {
                     }
                 })
                 setWishlists(updatedCars)
+                setUpdate(!update)
             })
     }
 
@@ -111,8 +121,6 @@ export default function AuthenticatedApp({ currentUser, setCurrentUser }) {
         setWishlists(wishCars)
         setUpdate(!update)
     }
-
-    console.log(cars);
 
     const handleLogout = () => {
         fetch(`/logout`, {

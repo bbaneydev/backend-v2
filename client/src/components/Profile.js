@@ -6,6 +6,8 @@ import 'react-multi-carousel/lib/styles.css';
 
 export default function Profile({ favorites, wishlists, deleteFavs, deleteWish, update, setUpdate }) {
 
+
+
     const favId = favorites.map(car => {
         for (const [key, value] of Object.entries(car)) {
             return (car.id);
@@ -65,7 +67,7 @@ export default function Profile({ favorites, wishlists, deleteFavs, deleteWish, 
             id={car.id}
             deleteWish={deleteWish}
             wishId={wishId}
-            setUpdate={setUpdate} 
+            setUpdate={setUpdate}
             update={update}
         />
     })

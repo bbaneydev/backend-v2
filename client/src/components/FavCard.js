@@ -7,9 +7,8 @@ export default function FavCard({ engine, horsepower, image, make, model, price,
         fetch(`/favorites/${favId}`, {
             method: 'DELETE'
         });
-        setUpdate(!update)
         deleteFavs(favId)
-        
+
     }
 
     return (
