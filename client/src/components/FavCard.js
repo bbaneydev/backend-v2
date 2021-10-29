@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 
-export default function FavCard({ engine, horsepower, image, make, model, price, time, deleteFavs, favId }) {
+export default function FavCard({ engine, horsepower, image, make, model, price, time, deleteFavs, favId, update, setUpdate }) {
 
 
     function handleDelete() {
         fetch(`/favorites/${favId}`, {
             method: 'DELETE'
         });
+        setUpdate(!update)
         deleteFavs(favId)
+        
     }
 
     return (

@@ -134,7 +134,7 @@ export default function AuthenticatedApp({ currentUser, setCurrentUser }) {
                     <AddCar handleAdd={handleAdd} />
                 </Route>
                 <Route exact path='/profile/'>
-                    <Profile favorites={favorites} wishlists={wishlists} deleteFavs={deleteFavs} deleteWish={deleteWish} />
+                    <Profile favorites={favorites} wishlists={wishlists} deleteFavs={deleteFavs} deleteWish={deleteWish} setUpdate={setUpdate} update={update} />
                 </Route>
                 <Route exact path='/home/'>
                     <Home cars={cars} currentUser={currentUser} handleAddFavorite={handleAddFavorite} handleAddWishlist={handleAddWishlist} />

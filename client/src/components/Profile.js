@@ -4,7 +4,7 @@ import WishCard from './WishCard';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-export default function Profile({ favorites, wishlists, deleteFavs, deleteWish }) {
+export default function Profile({ favorites, wishlists, deleteFavs, deleteWish, update, setUpdate }) {
 
     const favId = favorites.map(car => {
         for (const [key, value] of Object.entries(car)) {
@@ -48,6 +48,8 @@ export default function Profile({ favorites, wishlists, deleteFavs, deleteWish }
             deleteFavs={deleteFavs}
             favorites={favorites}
             favId={favId}
+            setUpdate={setUpdate}
+            update={update}
         />
     })
 
@@ -63,6 +65,8 @@ export default function Profile({ favorites, wishlists, deleteFavs, deleteWish }
             id={car.id}
             deleteWish={deleteWish}
             wishId={wishId}
+            setUpdate={setUpdate} 
+            update={update}
         />
     })
 
