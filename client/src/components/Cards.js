@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import CarCard from './CarCard';
 import "../App.css"
 
-export default function Cards({ cars, handleAddFavorite, handleAddWishlist, favorite, btn }) {
+export default function Cards({ cars, handleAddFavorite, handleAddWishlist, btn }) {
 
     const card = cars.map(car => (
         <CarCard id={car.id}

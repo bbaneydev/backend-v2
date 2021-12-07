@@ -19,6 +19,7 @@ export default function AuthenticatedApp({ currentUser, setCurrentUser }) {
             .then(res => res.json())
             .then(setCars)
     }, [])
+    
 
 
 
@@ -139,6 +140,7 @@ export default function AuthenticatedApp({ currentUser, setCurrentUser }) {
     return (
         <div>
             <Navbar currentUser={currentUser} handleLogout={handleLogout} />
+            
             <Switch>
                 <Route path='/addcar'>
                     <AddCar handleAdd={handleAdd} />

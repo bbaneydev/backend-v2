@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
-export default function WishCard({ id, engine, horsepower, image, make, model, price, time, wishId, deleteWish, update, setUpdate }) {
+export default function WishCard({ engine, horsepower, image, make, model, price, time, wishId, deleteWish}) {
 
     function handleDelete() {
         fetch(`/wishlists/${wishId}`, {
             method: 'DELETE'
         });
-        // setUpdate(!update)
+        
         deleteWish(wishId)
 
     }

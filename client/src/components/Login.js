@@ -6,6 +6,7 @@ export default function Login({ setCurrentUser }) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
+    
     const handleSubmit = (event) => {
         event.preventDefault()
         fetch('/login', {
